@@ -1,0 +1,27 @@
+class Solution:
+    def sortEvenOdd(self, nums: List[int]) -> List[int]:
+        i = 0
+        evens = []
+        odds = []
+        while i < len(nums):
+            evens.append(nums[i])
+            i += 2
+            
+        j = 1
+        
+        while j < len(nums):
+            odds.append(nums[j])
+            j += 2
+            
+        odds.sort()
+        odds.reverse()
+        evens.sort()
+        
+        for k in range(len(nums)):
+            if k % 2:
+                nums[k] = odds[k//2]
+            else:
+                nums[k] = evens[k//2]
+                
+        return nums
+        
